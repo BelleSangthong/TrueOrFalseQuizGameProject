@@ -7,4 +7,7 @@ public class QuizGame {
     public int getScore() {
         return 0;
     }
+
+    public void resetScore() {
+    }
 }

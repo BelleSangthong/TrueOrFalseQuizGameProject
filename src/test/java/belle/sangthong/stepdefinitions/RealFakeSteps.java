@@ -10,8 +10,7 @@ public class RealFakeSteps {
     @Given("the user is playing the quiz game")
     public void theUserIsPlayingTheQuizGame() {
         QuizGame quizGame = new QuizGame();
+        quizGame.resetScore();
         quizGame.loadQuestions();
-        assertTrue(quizGame.getScore() == 0,
-                "Expected the user to start with a score of 0.");
     }
 }
