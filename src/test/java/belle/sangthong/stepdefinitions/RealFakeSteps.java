@@ -8,6 +8,7 @@ public class RealFakeSteps {
     @Given("the user is playing the quiz game")
     public void theUserIsPlayingTheQuizGame() {
         QuizGame quizGame = new QuizGame();
+        quizGame.loadQuestions();
 
     }
 }
