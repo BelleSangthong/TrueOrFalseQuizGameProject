@@ -1,5 +1,6 @@
 package belle.sangthong.stepdefinitions;
 
+import belle.sangthong.QuizGame;
 import io.cucumber.java.en.Given;
 
 public class RealFakeSteps {
