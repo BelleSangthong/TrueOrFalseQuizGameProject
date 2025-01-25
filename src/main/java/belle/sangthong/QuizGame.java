@@ -10,4 +10,11 @@ public class QuizGame {
 
     public void resetScore() {
     }
+
+    public Question getCurrentQuestion() {
+        return null;
+    }
+
+    public void answerQuestion(boolean correctAnswer) {
+    }
 }
