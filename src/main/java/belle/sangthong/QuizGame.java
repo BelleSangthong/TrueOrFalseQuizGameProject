@@ -1,20 +1,16 @@
 package belle.sangthong;
 
 public class QuizGame {
-    public void loadQuestions() {
-    }
+
+    private int score = 0;
 
     public int getScore() {
-        return 0;
-    }
-
-    public void resetScore() {
-    }
-
-    public Question getCurrentQuestion() {
-        return null;
+        return score;
     }
 
     public void answerQuestion(boolean correctAnswer) {
+        if (correctAnswer) {
+            score++;
+        }
     }
 }
