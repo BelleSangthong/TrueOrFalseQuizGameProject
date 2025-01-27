@@ -3,6 +3,7 @@ package belle.sangthong;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RealFakeTest {
@@ -13,14 +14,14 @@ public class RealFakeTest {
         int newScore;
         int increaseAmount = 1;
 
-        belle.sangthong.QuizGame game = new belle.sangthong.QuizGame();
-
+        QuizGame game = new QuizGame();
         oldScore = game.getScore();
 
         game.addQuestion("Is the sky blue?", true);
 
-        game.answerQuestion(true);
+        game.getNextQuestion();
 
+        game.answerQuestion(true);
         newScore = game.getScore();
 
         assertTrue(oldScore + increaseAmount == newScore);
@@ -32,14 +33,15 @@ public class RealFakeTest {
     void IncorrectAnswerScoreNoChange() {
         int oldScore;
         int newScore;
-        belle.sangthong.QuizGame game = new belle.sangthong.QuizGame();
-        oldScore = game.getScore();
 
+        QuizGame game = new QuizGame();
+        oldScore = game.getScore();
 
         game.addQuestion("Is the sky blue?", true);
 
-        game.answerQuestion(false);
+        game.getNextQuestion();
 
+        game.answerQuestion(false);
         newScore = game.getScore();
 
         assertTrue(oldScore == newScore);
@@ -52,28 +54,27 @@ public class RealFakeTest {
         int oldScore;
         int newScore;
 
-        belle.sangthong.QuizGame game = new belle.sangthong.QuizGame();
-
+        QuizGame game = new QuizGame();
         oldScore = game.getScore();
 
-
         game.addQuestion("Is the sky blue?", true);
+        game.getNextQuestion();
         game.answerQuestion(true);
 
         game.addQuestion("Is the grass green?", true);
+        game.getNextQuestion();
         game.answerQuestion(true);
 
         game.addQuestion("Is the sun yellow?", true);
+        game.getNextQuestion();
         game.answerQuestion(false);
 
         game.addQuestion("Is the moon made of cheese?", false);
+        game.getNextQuestion();
         game.answerQuestion(true);
 
         newScore = game.getScore();
-
-
         assertTrue(oldScore + 2 == newScore);
-
 
         System.out.println("Score: " + game.getScore());
     }
@@ -85,14 +86,14 @@ public class RealFakeTest {
         int increaseAmount = 1;
         boolean rightAnswer = true;
 
-        belle.sangthong.QuizGame game = new belle.sangthong.QuizGame();
-
+        QuizGame game = new QuizGame();
         oldScore = game.getScore();
 
         game.addQuestion("Is the sky blue?", rightAnswer);
 
-        game.answerQuestion(rightAnswer);
+        game.getNextQuestion();
 
+        game.answerQuestion(rightAnswer);
         newScore = game.getScore();
 
         assertTrue(oldScore + increaseAmount == newScore);
