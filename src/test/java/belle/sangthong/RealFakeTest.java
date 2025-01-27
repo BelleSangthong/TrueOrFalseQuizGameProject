@@ -46,4 +46,35 @@ public class RealFakeTest {
 
         System.out.println("You answered incorrectly! Score: " + game.getScore());
     }
+
+    @Test
+    void MultipleQuestionsScore() {
+        int oldScore;
+        int newScore;
+
+        belle.sangthong.QuizGame game = new belle.sangthong.QuizGame();
+
+        oldScore = game.getScore();
+
+
+        game.addQuestion("Is the sky blue?", true);
+        game.answerQuestion(true);
+
+        game.addQuestion("Is the grass green?", true);
+        game.answerQuestion(true);
+
+        game.addQuestion("Is the sun yellow?", true);
+        game.answerQuestion(false);
+
+        game.addQuestion("Is the moon made of cheese?", false);
+        game.answerQuestion(true);
+
+        newScore = game.getScore();
+
+
+        assertTrue(oldScore + 2 == newScore);
+
+
+        System.out.println("Score: " + game.getScore());
+    }
 }
