@@ -1,31 +1,43 @@
 package belle.sangthong;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class QuizGame {
 
-    private String question;
-    private boolean answer;
-    private int score = 0;
+    private List<Question> questions;
+    private PlayerScore player;
+    private int currentQuestionIndex;
 
-    public boolean checkAnswer(boolean answer) {
-        return this.answer == answer;
+    public QuizGame() {
+        this.questions = new ArrayList<>();
+        this.player = new PlayerScore();
+        this.currentQuestionIndex = 0;
     }
 
-    public void addScore() {
-        score++;
+    public void addQuestion(String text, boolean correctAnswer) {
+        questions.add(new Question(text, correctAnswer));
+    }
+
+    public Question getNextQuestion() {
+        if (currentQuestionIndex < questions.size()) {
+            return questions.get(currentQuestionIndex++);
+        }
+        return null;
     }
 
     public void answerQuestion(boolean userAnswer) {
-        if (checkAnswer(userAnswer)) {
-            addScore();
+        Question currentQuestion = questions.get(currentQuestionIndex - 1);
+        if (currentQuestion.checkAnswer(userAnswer)) {
+            player.addPoint();
         }
     }
 
-    public void addQuestion(String question, boolean correctAnswer) {
-        this.question = question;
-        this.answer = correctAnswer;
+    public int getScore() {
+        return player.getScore();
     }
 
-    public int getScore() {
-        return score;
+    public boolean hasMoreQuestions() {
+        return currentQuestionIndex < questions.size();
     }
 }
