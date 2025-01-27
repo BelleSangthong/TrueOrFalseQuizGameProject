@@ -1,6 +1,5 @@
 package belle.sangthong.stepdefinitions;
 
-import belle.sangthong.Question;
 import belle.sangthong.QuizGame;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
