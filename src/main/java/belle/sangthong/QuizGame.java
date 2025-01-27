@@ -8,15 +8,14 @@ public class QuizGame {
         return score;
     }
 
-    public void answerQuestion(boolean correctAnswer) {
-        if (correctAnswer) {
+    public void answerQuestion(boolean userAnswer) {
+        if (userAnswer) {
             score++;
         }
     }
 
-    public void addQuestion(String question, boolean answer) {
+    public void addQuestion(String question, boolean correctAnswer) {
     }
 
-    public void submitAnswer(boolean userAnswer) {
-    }
+
 }

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RealFakeTest {
+
     @Test
     void CorrectAnswerScoreIncrease() {
         int oldScore;
@@ -18,7 +19,7 @@ public class RealFakeTest {
 
         game.addQuestion("Is the sky blue?", true);
 
-        game.submitAnswer(true);
+        game.answerQuestion(true);
 
         newScore = game.getScore();
 
