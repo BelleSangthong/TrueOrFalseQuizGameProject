@@ -16,6 +16,7 @@ public class RealFakeSteps {
     public void theUserIsPlayingTheQuizGame() {
         game = new QuizGame();
         game.addQuestion("Is the sky blue?", true);
+        game.getNextQuestion();
     }
 
     @When("the user answers the question correctly")
