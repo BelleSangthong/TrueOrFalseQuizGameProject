@@ -25,7 +25,25 @@ public class RealFakeTest {
 
         assertTrue(oldScore + increaseAmount == newScore);
 
-        System.out.println("Score: " + game.getScore());
-        System.out.println("1");
+        System.out.println("You answered correctly! Score: " + game.getScore());
+    }
+
+    @Test
+    void IncorrectAnswerScoreNoChange() {
+        int oldScore;
+        int newScore;
+        belle.sangthong.QuizGame game = new belle.sangthong.QuizGame();
+        oldScore = game.getScore();
+
+
+        game.addQuestion("Is the sky blue?", true);
+
+        game.answerQuestion(false);
+
+        newScore = game.getScore();
+
+        assertTrue(oldScore == newScore);
+
+        System.out.println("You answered incorrectly! Score: " + game.getScore());
     }
 }
