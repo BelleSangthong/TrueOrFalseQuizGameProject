@@ -30,12 +30,6 @@ public class RealFakeSteps {
         assert score == 1;
     }
 
-    @Given("the user is playing the quiz game")
-    public void theUserIsPlayingTheQuizGameWithIncorrectAnswer() {
-        quizGame.resetScore();
-        quizGame.loadQuestions();
-    }
-
     @When("the user answers the question incorrectly")
     public void theUserAnswersTheQuestionIncorrectly() {
         Question question = quizGame.getCurrentQuestion();
