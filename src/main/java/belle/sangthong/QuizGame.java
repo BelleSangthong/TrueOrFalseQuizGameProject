@@ -13,4 +13,10 @@ public class QuizGame {
             score++;
         }
     }
+
+    public void addQuestion(String question, boolean answer) {
+    }
+
+    public void submitAnswer(boolean userAnswer) {
+    }
 }
