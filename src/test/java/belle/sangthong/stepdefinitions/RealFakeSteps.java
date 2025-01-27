@@ -6,28 +6,37 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class RealFakeSteps {
 
+    private QuizGame game;
+
     @Given("the user is playing the quiz game")
     public void theUserIsPlayingTheQuizGame() {
-        QuizGame quizGame = new QuizGame();
-        quizGame.resetScore();
-        quizGame.loadQuestions();
+        game = new QuizGame();
     }
 
     @When("the user answers the question correctly")
     public void theUserAnswersTheQuestionCorrectly() {
-        QuizGame quizGame = new QuizGame();
-        Question question = quizGame.getCurrentQuestion();
-        boolean correctAnswer = question.getCorrectAnswer();
-        quizGame.answerQuestion(correctAnswer);
+        game.answerQuestion(true);
     }
 
     @Then("the user should receive 1 point")
     public void theUserShouldReceive1Point() {
-        QuizGame quizGame = new QuizGame();
-        int score = quizGame.getScore();
-        assert score == 1;
+        assertEquals(1, game.getScore());
     }
+
+    @When("the user answers the question incorrectly")
+    public void theUserAnswersTheQuestionIncorrectly() {
+        game.answerQuestion(false);
+    }
+
+    @Then("the user should receive 0 points")
+    public void theUserShouldReceive0Points() {
+        assertEquals(0, game.getScore());
+    }
+
+
 }
