@@ -77,4 +77,26 @@ public class RealFakeTest {
 
         System.out.println("Score: " + game.getScore());
     }
+
+    @Test
+    void VerifyQuestionHaveRightAnswer() {
+        int oldScore;
+        int newScore;
+        int increaseAmount = 1;
+        boolean rightAnswer = true;
+
+        belle.sangthong.QuizGame game = new belle.sangthong.QuizGame();
+
+        oldScore = game.getScore();
+
+        game.addQuestion("Is the sky blue?", rightAnswer);
+
+        game.answerQuestion(rightAnswer);
+
+        newScore = game.getScore();
+
+        assertTrue(oldScore + increaseAmount == newScore);
+
+        System.out.println("Score: " + game.getScore());
+    }
 }
