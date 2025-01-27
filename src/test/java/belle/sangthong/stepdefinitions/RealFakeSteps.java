@@ -1,6 +1,5 @@
 package belle.sangthong.stepdefinitions;
 
-import belle.sangthong.Question;
 import belle.sangthong.QuizGame;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -16,6 +15,7 @@ public class RealFakeSteps {
     @Given("the user is playing the quiz game")
     public void theUserIsPlayingTheQuizGame() {
         game = new QuizGame();
+        game.addQuestion("Is the sky blue?", true);
     }
 
     @When("the user answers the question correctly")
