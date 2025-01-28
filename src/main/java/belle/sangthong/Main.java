@@ -23,6 +23,6 @@ public class Main {
 
         System.out.println("Your score is: " + game.getScore());
 
-        System.out.println("Test test test");
+        System.out.println("Testing merge conflict");
     }
 }
